@@ -17,7 +17,7 @@ import time
 
 os.system('clear')
 title = "DD5ZZ's simple logger Version ";
-version = "0.14";
+version = "0.15";
 
 host = "dd5zz-pc"
 port = 3306
@@ -29,6 +29,8 @@ quitkey = "q"
 errorkey = "e"
 mainmenukey = "m"
 
+lastqsoid = 0
+
 ############################
 #        functions         #
 ############################
@@ -37,6 +39,7 @@ def newid():
     cursor = db.cursor()
     cursor.execute("SELECT MAX(QsoId) AS QsoId FROM log;")
     maxqsoid = cursor.fetchone()
+    global lastqsoid = maxqsoid[0]
     newqsoid = maxqsoid[0] + 1
     return newqsoid
 
@@ -229,7 +232,7 @@ def lastqso():
     #==========#
 
     cursor = db.cursor()
-    cursor.execute("SELECT band,mode,`call`,QsoDate,TimeOn FROM log WHERE QsoId=" + str(maxqsoid[0]) + ";")
+    cursor.execute("SELECT band,mode,`call`,QsoDate,TimeOn FROM log WHERE QsoId=" + str(lastqsoid) + ";")
     lastqso = cursor.fetchall()
     print ("")
     print ("Last logged QSO in Database:")
