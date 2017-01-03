@@ -17,7 +17,7 @@ import time
 
 os.system('clear')
 title = "DD5ZZ's simple logger Version ";
-version = "0.18";
+version = "0.19";
 
 host = "dd5zz-pc"
 port = 3306
@@ -28,8 +28,6 @@ dbName = "log4omdm5em"
 quitkey = "q"
 errorkey = "e"
 mainmenukey = "m"
-
-lastqsoid = 0
 
 ############################
 #        functions         #
