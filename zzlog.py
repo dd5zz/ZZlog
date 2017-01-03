@@ -17,7 +17,7 @@ import time
 
 os.system('clear')
 title = "DD5ZZ's simple logger Version ";
-version = "0.12";
+version = "0.13";
 
 host = "dd5zz-pc"
 port = 3306
@@ -229,7 +229,7 @@ def lastqso():
     #==========#
 
     cursor = db.cursor()
-    cursor.execute("SELECT MAX(QsoId),band,mode,`call`,QsoDate,TimeOn AS TimeOn FROM log;")
+    cursor.execute("SELECT band,mode,`call`,QsoDate,TimeOn FROM log WHERE QsoId=" + str(maxqsoid[0]) + ";")
     lastqso = cursor.fetchall()
     print ("")
     print ("Last logged QSO in Database:")
