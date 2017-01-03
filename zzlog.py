@@ -17,7 +17,7 @@ import time
 
 os.system('clear')
 title = "DD5ZZ's simple logger Version ";
-version = "0.11";
+version = "0.12";
 
 host = "dd5zz-pc"
 port = 3306
