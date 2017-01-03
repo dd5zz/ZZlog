@@ -17,7 +17,7 @@ import time
 
 os.system('clear')
 title = "DD5ZZ's simple logger Version ";
-version = "0.13";
+version = "0.14";
 
 host = "dd5zz-pc"
 port = 3306
@@ -264,7 +264,7 @@ def menu():
     elif usersel == "3":
         loginputpastqso()
     elif usersel == "4":
-        last5qsos()
+        lastqso()
     elif usersel == "73":
         db.close()
         print ("")
