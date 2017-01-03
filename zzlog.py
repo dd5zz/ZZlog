@@ -17,7 +17,7 @@ import time
 
 os.system('clear')
 title = "DD5ZZ's simple logger Version ";
-version = "0.22";
+version = "0.23";
 
 host = "dd5zz-pc"
 port = 3306
@@ -230,6 +230,8 @@ def lastqso():
     # last qso #
     #==========#
    
+    os.system('clear')
+    logo()
     cursor = db.cursor()
     cursor.execute("SELECT band,mode,`call`,QsoDate,TimeOn FROM log WHERE QsoId=" + str(lastqsoid) + ";")
     lastqso = cursor.fetchall()
@@ -238,6 +240,7 @@ def lastqso():
     print ("")
     print (lastqso[0][2] + " on " + lastqso[0][0] + " in " +  lastqso[0][1] + " Date: " + lastqso[0][3] + " Time (UTC) " + lastqso[0][4])
     print ("")
+    
 
 
 ########################################################################################################################################################################
