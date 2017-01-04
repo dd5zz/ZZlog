@@ -17,7 +17,7 @@ import time
 
 os.system('clear')
 title = "DD5ZZ's simple logger Version ";
-version = "0.28";
+version = "0.3";
 
 host = "dd5zz-pc"
 port = 3306
@@ -53,6 +53,10 @@ def dxped():
     ###################
     global lastband   
     logo()
+    print ("")
+    print ('                Use "' + mainmenukey + '" at callsign prompt to get back to the main menu.')
+    print ('                To correct a mistake and start over use "' + errorkey + '" at any input prompt.')
+    print ("")
     CallToLog = raw_input("                       Callsign to log: ")
     if CallToLog == mainmenukey:
         menu()
@@ -66,19 +70,35 @@ def dxped():
         BandToLog = lastband
     lastband = BandToLog
     print ("")
-    ModeToLog = raw_input("                               In Mode: ")
-    print ("")
-    RSTr = raw_input("                          RST Received: ")
-    print ("")
-    RSTs = raw_input("                              RST Sent: ")
+    ModeToLog = raw_input("                               In Mode " + "(" + str(lastmode) + ")" + ": ")
+    if ModeToLog:
+        1 #do nothing
+    else:
+        ModeToLog = lastmode
+    RSTr = 59
+    RSTs = 59
     TimeToLog = time.strftime("%H%M%S",time.gmtime())
     DateToLog = time.strftime("%Y%m%d",time.gmtime())
     nextid = newid()
     print ("")
     
+    ##########################
+    #      write to db       #
+    ##########################
 
-
-
+    try:
+        cursor = db.cursor()
+        cursor.execute("INSERT INTO log (QsoId, `Call`, Band, Mode,  TimeOn, QsoDate, RstRcvd, RstSent) VALUES ("+str$
+        db.commit()
+    except Exception as e:
+        print("Something went wrong.")
+        print("Please try again later.")
+        print("73!")
+        sys.exit("")
+    else:
+        print "\033[0;5mLogged!\033[0m"
+        print("")
+        time.sleep(2)
     dxped()
 
 
