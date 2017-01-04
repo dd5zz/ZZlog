@@ -17,7 +17,7 @@ import time
 
 os.system('clear')
 title = "DD5ZZ's simple logger Version ";
-version = "0.31";
+version = "0.32";
 
 host = "dd5zz-pc"
 port = 3306
@@ -52,6 +52,7 @@ def dxped():
     # DXpedition mode #
     ###################
     global lastband   
+    global lastmode
     logo()
     print ("")
     print ('                Use "' + mainmenukey + '" at callsign prompt to get back to the main menu.')
