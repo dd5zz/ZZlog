@@ -17,7 +17,7 @@ import time
 
 os.system('clear')
 title = "DD5ZZ's simple logger Version ";
-version = "0.24";
+version = "0.25";
 
 host = "dd5zz-pc"
 port = 3306
@@ -257,7 +257,9 @@ def menu():
     print ("       1  -> Log QSO using real time")
     print ("       2  -> Log QSO with fixed 59/59 reports using real time")
     print ("       3  -> Log past QSO")
-    print ("       4  -> Show last 5 log entrys")
+    print ("       4  -> DXpedition mode")
+    print ("       5  -> Show last log entry")
+    print ("")
     print ("       73 -> Quit ZZlog")
     print ("")
     print ("")
@@ -270,6 +272,8 @@ def menu():
     elif usersel == "3":
         loginputpastqso()
     elif usersel == "4":
+        dxped()
+    elif usersel == "5":
         lastqso()
     elif usersel == "73":
         db.close()
