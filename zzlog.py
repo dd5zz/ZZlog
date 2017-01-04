@@ -17,7 +17,7 @@ import time
 
 os.system('clear')
 title = "DD5ZZ's simple logger Version ";
-version = "0.23";
+version = "0.24";
 
 host = "dd5zz-pc"
 port = 3306
@@ -240,7 +240,8 @@ def lastqso():
     print ("")
     print (lastqso[0][2] + " on " + lastqso[0][0] + " in " +  lastqso[0][1] + " Date: " + lastqso[0][3] + " Time (UTC) " + lastqso[0][4])
     print ("")
-    
+    time.sleep(5)
+    menu()
 
 
 ########################################################################################################################################################################
