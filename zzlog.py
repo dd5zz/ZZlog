@@ -17,7 +17,7 @@ import time
 
 os.system('clear')
 title = "DD5ZZ's simple logger Version ";
-version = "0.25";
+version = "0.26";
 
 host = "dd5zz-pc"
 port = 3306
@@ -30,6 +30,8 @@ errorkey = "e"
 mainmenukey = "m"
 
 lastqsoid = 0
+lastband = 0
+lastmode = 0
 
 ############################
 #        functions         #
@@ -44,6 +46,39 @@ def newid():
 
 ################################################################################################################################################
 
+def dxped():
+    
+    ###################
+    # DXpedition mode #
+    ###################
+    global lastband   
+    loglogo()
+    CallToLog = raw_input("                       Callsign to log: ")
+    if CallToLog == mainmenukey:
+        menu()
+    else:
+        1 #nothing to do here
+    print ("")
+    BandToLog = raw_input('                               On band ' + '(' + str(lastband) + ')' + ': ')
+    if BandToLog:
+        1 #do nothing
+    else:
+        BandToLog = lastband
+    lastband = BandToLog
+    print ("")
+    ModeToLog = raw_input("                               In Mode: ")
+    print ("")
+    RSTr = raw_input("                          RST Received: ")
+    print ("")
+    RSTs = raw_input("                              RST Sent: ")
+    TimeToLog = time.strftime("%H%M%S",time.gmtime())
+    DateToLog = time.strftime("%Y%m%d",time.gmtime())
+    nextid = newid()
+    print ("")
+    dxped()
+
+
+#####################################################################################################################################
 def loginput():
 
     ###########
