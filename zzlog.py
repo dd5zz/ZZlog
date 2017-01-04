@@ -17,7 +17,7 @@ import time
 
 os.system('clear')
 title = "DD5ZZ's simple logger Version ";
-version = "0.3";
+version = "0.31";
 
 host = "dd5zz-pc"
 port = 3306
@@ -75,6 +75,7 @@ def dxped():
         1 #do nothing
     else:
         ModeToLog = lastmode
+    lastmode = ModeToLog
     RSTr = 59
     RSTs = 59
     TimeToLog = time.strftime("%H%M%S",time.gmtime())
@@ -88,7 +89,7 @@ def dxped():
 
     try:
         cursor = db.cursor()
-        cursor.execute("INSERT INTO log (QsoId, `Call`, Band, Mode,  TimeOn, QsoDate, RstRcvd, RstSent) VALUES ("+str$
+        cursor.execute("INSERT INTO log (QsoId, `Call`, Band, Mode,  TimeOn, QsoDate, RstRcvd, RstSent) VALUES ("+str(nextid)+", '"+str(CallToLog)+"', '"+str(BandToLog)+"', '"+str(ModeToLog)+"', '"+str(TimeToLog)+"', '"+ str(DateToLog)+"','"+str(RSTr)+"', '"+str(RSTs)+"');") 
         db.commit()
     except Exception as e:
         print("Something went wrong.")
@@ -98,7 +99,7 @@ def dxped():
     else:
         print "\033[0;5mLogged!\033[0m"
         print("")
-        time.sleep(2)
+        time.sleep(1)
     dxped()
 
 
