@@ -17,7 +17,7 @@ import time
 
 os.system('clear')
 title = "DD5ZZ's simple logger Version ";
-version = "0.26";
+version = "0.27";
 
 host = "dd5zz-pc"
 port = 3306
@@ -52,7 +52,7 @@ def dxped():
     # DXpedition mode #
     ###################
     global lastband   
-    loglogo()
+    logo()
     CallToLog = raw_input("                       Callsign to log: ")
     if CallToLog == mainmenukey:
         menu()
@@ -75,6 +75,10 @@ def dxped():
     DateToLog = time.strftime("%Y%m%d",time.gmtime())
     nextid = newid()
     print ("")
+    
+
+
+
     dxped()
 
 
