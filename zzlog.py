@@ -51,8 +51,7 @@ def dxped():
     ###################
     # DXpedition mode #
     ###################
-    global lastband
-    sys.   
+    global lastband   
     logo()
     CallToLog = raw_input("                       Callsign to log: ")
     if CallToLog == mainmenukey:
